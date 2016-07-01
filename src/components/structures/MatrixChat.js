@@ -1098,18 +1098,9 @@ module.exports = React.createClass({
             );
         } else if (this.state.logged_in || (!this.state.logged_in && this._autoRegisterAsGuest)) {
             var Spinner = sdk.getComponent('elements.Spinner');
-            var logoutLink;
-            if (this.state.logged_in) {
-                logoutLink = (
-                    <a href="#" className="mx_MatrixChat_splashButtons" onClick={ this.onLogoutClick }>
-                    Logout
-                    </a>
-                );
-            }
             return (
                 <div className="mx_MatrixChat_splash">
                     <Spinner />
-                    {logoutLink}
                 </div>
             );
         } else if (this.state.screen == 'register') {
