@@ -1019,7 +1019,6 @@ module.exports = React.createClass({
         var RoomDirectory = sdk.getComponent('structures.RoomDirectory');
         var MatrixToolbar = sdk.getComponent('globals.MatrixToolbar');
         var GuestWarningBar = sdk.getComponent('globals.GuestWarningBar');
-        var NewVersionBar = sdk.getComponent('globals.NewVersionBar');
         var ForgotPassword = sdk.getComponent('structures.login.ForgotPassword');
 
         // work out the HS URL prompts we should show for
@@ -1069,10 +1068,7 @@ module.exports = React.createClass({
             }
 
             var topBar;
-            if (this.state.hasNewVersion) {
-                topBar = <NewVersionBar />;
-            }
-            else if (MatrixClientPeg.get().isGuest()) {
+            if (MatrixClientPeg.get().isGuest()) {
                 topBar = <GuestWarningBar />;
             }
             else if (Notifier.supportsDesktopNotifications() && !Notifier.isEnabled() && !Notifier.isToolbarHidden()) {
